@@ -95,6 +95,22 @@ button {
     from { transform: translateY(100vh) scale(0.6); }
     to { transform: translateY(-10vh) scale(1.2); }
 }
+
+.gifs {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gifs img {
+    width: 110px;
+    max-width: 40%;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
 </style>
 </head>
 
@@ -114,7 +130,17 @@ button {
 
 <div class="celebration" id="celebration">
     <h1>🎉 She Said YES! 🎉</h1>
-    <p>Aarti, thank you for choosing me ❤️<br><br>You are my Valentine.</p>
+
+    <p>
+        Aarti, thank you for choosing me ❤️<br><br>
+        This moment is special because <b>you</b> are my Valentine 💕
+    </p>
+
+    <div class="gifs">
+        <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="cute love gif">
+        <img src="https://media.giphy.com/media/l4FGpPki5v2Bcd6Ss/giphy.gif" alt="hug gif">
+        <img src="https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif" alt="hearts gif">
+    </div>
 </div>
 
 <script>
