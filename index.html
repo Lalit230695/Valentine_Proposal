@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(255,255,255,0.97);
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 360px;
+}
+
+h1 {
+    color: #e63946;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    position: relative;
+    height: 160px;
+}
+
+button {
+    font-size: 18px;
+    padding: 14px 32px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+#yesBtn {
+    background: #e63946;
+    color: white;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#noBtn {
+    background: #adb5bd;
+    color: #333;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+}
+
+.celebration {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.celebration h1 {
+    font-size: 34px;
+}
+
+.celebration p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh) scale(0.6); }
+    to { transform: translateY(-10vh) scale(1.2); }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_3c8c5a8ed2.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="proposal">
+    <h1>💖 Aarti, will you be my Valentine? 💖</h1>
+    <div class="buttons">
+        <button id="yesBtn">Yes 💕</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+</div>
+
+<div class="celebration" id="celebration">
+    <h1>🎉 She Said YES! 🎉</h1>
+    <p>Aarti, thank you for choosing me ❤️<br><br>You are my Valentine.</p>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const proposal = document.getElementById("proposal");
+const celebration = document.getElementById("celebration");
+const music = document.getElementById("music");
+
+function moveNoButton() {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 120 - 60;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+noBtn.addEventListener("touchstart", moveNoButton);
+noBtn.addEventListener("mouseover", moveNoButton);
+
+yesBtn.addEventListener("click", () => {
+    proposal.style.display = "none";
+    celebration.style.display = "flex";
+    music.play();
+    for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+        document.body.appendChild(heart);
+    }
+});
+</script>
+
+</body>
+</html>
